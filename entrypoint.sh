@@ -6,11 +6,10 @@ postconf -e 'inet_interfaces = all'
 if env | grep -q ^POSTFIX_; then
 
 	postconf -e "myhostname = ${POSTFIX_HOSTNAME}"
-	if [ "${POSTFIX_DOMAIN}" ]; then
-		postconf -e "mydomain = ${POSTFIX_DOMAIN}"
-	else
-		postconf -e "mydomain = ${POSTFIX_HOSTNAME#*.}"
+	if [ -z "${POSTFIX_DOMAIN}" ]; then
+		POSTFIX_DOMAIN="${POSTFIX_HOSTNAME#*.}"
 	fi
+	postconf -e "mydomain = ${POSTFIX_DOMAIN}"
 	postconf -e 'myorigin = $mydomain'
 
 	if [ "${POSTFIX_DESTINATION}" ]; then
