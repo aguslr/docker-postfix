@@ -1,0 +1,19 @@
+version: '2.4'
+
+services:
+  postfix:
+    container_name: postfix
+    build:
+      context: .
+    restart: unless-stopped
+    environment:
+      - POSTFIX_HOSTNAME=mail.example.com
+      - POSTFIX_RELAYSERVER=smtp.mail.com
+      - POSTFIX_RELAYUSER=me@mail.com
+      - POSTFIX_RELAYPASS=123456
+    ports:
+      - 25:25/tcp
+    healthcheck:
+      test: timeout 2 nc -z 127.0.0.1 25
+      interval: 1m
+      timeout: 3s
