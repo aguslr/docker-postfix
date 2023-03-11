@@ -28,7 +28,7 @@ To use *docker-postfix*, follow these steps:
    port `25`.
 
 
-## Variables
+### Variables
 
 The image is configured using environment variables passed at runtime. All these
 variables are prefixed by `POSTFIX_`.
@@ -48,7 +48,7 @@ variables are prefixed by `POSTFIX_`.
 | `NETWORKS`    | List of networks allowed to use relay server   | N        |
 
 
-### Password file
+#### Password file
 
 As an alternative to pass the relay's server password at runtime, we can use a
 password file (e.g. `passwd`) with the format:
