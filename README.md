@@ -53,16 +53,16 @@ variables are prefixed by `POSTFIX_`.
 As an alternative to pass the relay's server password at runtime, we can use a
 password file (e.g. `passwd`) with the format:
 
-       [RELAYSERVER]:RELAYPORT RELAYUSER:RELAYPASS
+    [RELAYSERVER]:RELAYPORT RELAYUSER:RELAYPASS
 
 We can then mount this file at runtime with this command:
 
-       docker run -p 25:25 \
-         -e POSTFIX_HOSTNAME=mail.example.com \
-         -e POSTFIX_RELAYSERVER=smtp.mail.com \
-         -e POSTFIX_RELAYUSER=me@mail.com \
-         -v "${PWD}"/passwd:/etc/postfix/sasl_passwd \
-         docker.io/aguslr/postfix:latest
+    docker run -p 25:25 \
+      -e POSTFIX_HOSTNAME=mail.example.com \
+      -e POSTFIX_RELAYSERVER=smtp.mail.com \
+      -e POSTFIX_RELAYUSER=me@mail.com \
+      -v "${PWD}"/passwd:/etc/postfix/sasl_passwd \
+      docker.io/aguslr/postfix:latest
 
 
 Build locally
