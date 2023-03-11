@@ -33,19 +33,19 @@ To use *docker-postfix*, follow these steps:
 The image is configured using environment variables passed at runtime. All these
 variables are prefixed by `POSTFIX_`.
 
-| Variable      | Function                                       |
-| :------------ | :--------------------------------------------- |
-| `HOSTNAME`    | Hostname for the container                     |
-| `DOMAIN`      | Domain name for Postfix                        |
-| `RELAYSERVER` | Address of the SMTP server to use              |
-| `RELAYPORT`   | Port to connect to the SMTP server             |
-| `RELAYUSER`   | Username of SMTP server                        |
-| `RELAYPASS`   | Password of SMTP server                        |
-| `OVERWRITE`   | Use this *from* address for all relayed emails |
-| `FROM`        | Rewrite *from* address                         |
-| `TO`          | Rewrite *to* address                           |
-| `DESTINATION` | List of domains allowed to use relay server    |
-| `NETWORKS`    | List of networks allowed to use relay server   |
+| Variable      | Function                                       | Required |
+| :------------ | :--------------------------------------------- | -------- |
+| `HOSTNAME`    | Hostname for the container                     | Y        |
+| `DOMAIN`      | Domain name for Postfix                        | N        |
+| `RELAYSERVER` | Address of the SMTP server to use              | Y        |
+| `RELAYPORT`   | Port to connect to the SMTP server             | N        |
+| `RELAYUSER`   | Username of SMTP server                        | Y        |
+| `RELAYPASS`   | Password of SMTP server                        | Y        |
+| `OVERWRITE`   | Use this *from* address for all relayed emails | N        |
+| `FROM`        | Rewrite *from* address                         | N        |
+| `TO`          | Rewrite *to* address                           | N        |
+| `DESTINATION` | List of domains allowed to use relay server    | N        |
+| `NETWORKS`    | List of networks allowed to use relay server   | N        |
 
 
 Build locally
