@@ -64,5 +64,8 @@ if env | grep -q ^POSTFIX_; then
 
 fi
 
+# Set up aliases
+postalias /etc/postfix/aliases
+
 # Start Postfix
 /usr/sbin/postfix "$@"
