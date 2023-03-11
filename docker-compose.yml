@@ -15,5 +15,5 @@ services:
       - 25:25/tcp
     healthcheck:
       test: timeout 2 nc -z 127.0.0.1 25
-      interval: 1m
+      interval: 10m
       timeout: 3s

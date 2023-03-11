@@ -10,7 +10,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 25/tcp
 
-HEALTHCHECK --interval=1m --timeout=3s \
+HEALTHCHECK --interval=10m --timeout=3s \
   CMD timeout 2 nc -z 127.0.0.1 25
 
 ENTRYPOINT ["/entrypoint.sh"]
