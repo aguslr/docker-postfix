@@ -24,7 +24,7 @@ if env | grep -q ^POSTFIX_; then
 		postconf -e 'mynetworks = 127.0.0.0/8, 192.168.0.0/16'
 	fi
 
-	postconf -e "relayhost = [${POSTFIX_RELAYSERVER}]:${POSTFIX_RELAYPORT:-587}"
+	postconf -e "relayhost = [${POSTFIX_RELAYSERVER}]:${POSTFIX_RELAYPORT:=587}"
 	if [ "${POSTFIX_RELAYUSER}" ]; then
 		postconf -e 'smtp_sasl_auth_enable = yes'
 		postconf -e 'smtp_sasl_password_maps = lmdb:/etc/postfix/sasl_passwd'
@@ -34,7 +34,7 @@ if env | grep -q ^POSTFIX_; then
 		postconf -e 'smtp_use_tls = yes'
 		if [ ! -f /etc/postfix/sasl_passwd ]; then
 			printf '[%s]:%d %s:%s\n' \
-				"${POSTFIX_RELAYSERVER}" "${POSTFIX_RELAYPORT:-587}" \
+				"${POSTFIX_RELAYSERVER}" "${POSTFIX_RELAYPORT}" \
 				"${POSTFIX_RELAYUSER}" "${POSTFIX_RELAYPASS}" \
 				> /etc/postfix/sasl_passwd
 		fi
