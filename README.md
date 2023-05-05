@@ -50,8 +50,8 @@ variables are prefixed by `POSTFIX_`.
 
 #### Password file
 
-As an alternative to pass the relay's server password at runtime, we can use a
-password file (e.g. `passwd`) with the format:
+As an alternative to passing the relay's server password at runtime, we can use
+a password file (e.g. `passwd`) with the format:
 
     [RELAYSERVER]:RELAYPORT RELAYUSER:RELAYPASS
 
