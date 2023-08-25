@@ -1,7 +1,7 @@
 [aguslr/docker-postfix][1]
 ==========================
 
-[![publish-docker-image](https://github.com/aguslr/docker-postfix/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/aguslr/docker-postfix/actions/workflows/docker-publish.yml) [![docker-pulls](https://img.shields.io/docker/pulls/aguslr/postfix)](https://hub.docker.com/r/aguslr/postfix) [![image-size](https://img.shields.io/docker/image-size/aguslr/postfix/latest)](https://hub.docker.com/r/aguslr/postfix)
+[![docker-pulls](https://img.shields.io/docker/pulls/aguslr/postfix)](https://hub.docker.com/r/aguslr/postfix) [![image-size](https://img.shields.io/docker/image-size/aguslr/postfix/latest)](https://hub.docker.com/r/aguslr/postfix)
 
 
 This *Docker* image sets up *Postfix* inside a docker container.
