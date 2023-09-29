@@ -11,7 +11,7 @@ COPY entrypoint.sh /entrypoint.sh
 EXPOSE 25/tcp
 
 HEALTHCHECK --interval=10m --timeout=3s \
-  CMD timeout 2 nc -z 127.0.0.1 25
+  CMD netstat -tl | grep -q smtp
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["start-fg"]
