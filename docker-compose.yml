@@ -13,7 +13,3 @@ services:
       - POSTFIX_RELAYPASS=123456
     ports:
       - 25:25/tcp
-    healthcheck:
-      test: netstat -tl | grep -q smtp
-      interval: 1m
-      timeout: 3s
