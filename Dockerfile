@@ -1,17 +1,22 @@
-ARG BASE_IMAGE=library/alpine:latest
+ARG BASE_IMAGE=library/debian:stable-slim
 
 FROM docker.io/${BASE_IMAGE}
 
 RUN \
-  apk add --update --no-cache postfix cyrus-sasl-login \
-  && rm -rf /var/cache/apk/*
+  apt-get update && \
+  env DEBIAN_FRONTEND=noninteractive \
+  apt-get install -y --no-install-recommends \
+  postfix postfix-lmdb ca-certificates libsasl2-modules iproute2 \
+  -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/* && \
+  sed -i 's/ y / n /' /etc/postfix/master.cf
 
 COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 25/tcp
 
 HEALTHCHECK --interval=1m --timeout=3s \
-  CMD netstat -tl | grep -q smtp
+  CMD ss -tl | grep -q smtp
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["start-fg"]

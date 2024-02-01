@@ -3,6 +3,7 @@
 # Configure Postfix
 postconf -e 'maillog_file = /dev/stdout'
 postconf -e 'inet_interfaces = all'
+postconf -e 'smtpd_tls_security_level = none'
 if env | grep -q ^POSTFIX_; then
 
 	postconf -e "myhostname = ${POSTFIX_HOSTNAME}"
