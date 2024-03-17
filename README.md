@@ -61,7 +61,7 @@ We can then mount this file at runtime with this command:
       -e POSTFIX_HOSTNAME=mail.example.com \
       -e POSTFIX_RELAYSERVER=smtp.mail.com \
       -e POSTFIX_RELAYUSER=me@mail.com \
-      -v ./passwd:/etc/postfix/sasl_passwd \
+      -v "${PWD}"/passwd:/etc/postfix/sasl_passwd \
       docker.io/aguslr/postfix:latest
 
 
