@@ -11,7 +11,7 @@ RUN \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /var/lib/apt/lists/* && \
   sed -i 's/ y / n /' /etc/postfix/master.cf
 
-COPY entrypoint.sh /entrypoint.sh
+COPY rootfs/ /
 
 EXPOSE 25/tcp
 
